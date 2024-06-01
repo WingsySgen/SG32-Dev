@@ -1,0 +1,40 @@
+#UART发送测试
+#烧录
+#每一秒串口发送一个"hello world\n\r"的字符串
+#需要对内存进行初始化操作（helloworld.mi）
+jmp _ _ init
+#jmp _ _ interrupt
+
+label init
+    call _ _ uart_init
+    mov 128 _ ioad
+    jmp _ _ main
+
+label main
+    mov reg0 _ reg1
+    mov reg0 _ reg2
+    label main_loop
+        jne reg2 reg0 main_loop_if_else
+        memr _ reg1 reg2
+        add reg1 1 reg1
+        je reg2 reg0 main_loop_end
+        label main_loop_if_else
+            and reg2 0xff reg3
+            je reg3 reg0 main_loop_end
+            mov reg2 _ ioc
+            lsh reg2 8 reg2
+            jmp _ _ main_loop
+    label main_loop_end
+        call _ _ sleep
+    jmp _ _ main
+
+label uart_init
+    mov 131 _ ioad
+    mov 7 _ ioc
+    ret _ _ _
+
+label sleep
+    add timer 1000 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _

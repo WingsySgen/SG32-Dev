@@ -1,0 +1,21 @@
+locate 0x100                    #定位到0x100的位置
+string str "Hello World!\n\r"   #定义需要的字符串
+label init                      #热烧录默认程序会直接跳转到这里
+    call _ _ uart_init          #调用uart初始化函数
+    mov led _ ioad              #让IOAD指向#IO 16的LED
+    mov r0 _ ioc                #将LED初始化为0
+    mov r0 _ r1                 #将#1初始化为0
+    jmp _ _ main                #跳转到main
+
+include "std/stduart"           #包含uart/uart，提供:uart_wt() uart_rd() uart_init() putline()
+include "std/stdlib"            #目前提供sleep()
+
+label main
+    mov str _ r22               #将str指针赋值给#22
+    call _ _ putline            #putline()会将#22的值作为字符串指针
+    mov led _ ioad              
+    not r1 _ r1                 #将#1取反
+    mov r1 _ ioc                
+    call _ _ sleep              #非中断地等待1s
+    jmp _ _ main                #循环执行
+

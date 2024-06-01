@@ -1,0 +1,18 @@
+locate 0x100
+
+label __init
+    mov 0 _ r1 
+    jmp _ _ main
+
+label main
+    mov 256 _ ioad
+    not r1 _ ioc
+    add r1 1 r1 
+    call _ _ sleep
+    jmp _ _ main
+
+label sleep
+    add timer 1000 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _

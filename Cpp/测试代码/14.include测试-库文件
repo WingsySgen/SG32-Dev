@@ -1,0 +1,5 @@
+global sleep
+    add timer 1000 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _

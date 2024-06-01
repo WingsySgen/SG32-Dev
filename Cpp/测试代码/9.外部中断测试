@@ -1,0 +1,49 @@
+#外部中断测试
+#仿真
+#触发软中断进入0号中断
+#reg1初始为0b1010，不断取反
+#reg1的数据更新之后低四位会被输出到4位led组中
+#按钮拉起的外部中断会把4位led组赋值为0b1111
+
+nop _ _ _ 
+jmp _ _ init
+jmp _ _ interrupt
+
+label int_div0
+    mov 1 _ ioad
+    not reg0 _ ioc
+    not reg1 _ reg1
+    mov 1 _ reg10
+    mov 256 _ ioad
+    mov reg1 _ ioc
+    iret _ _ _
+
+label int_btn
+    mov 1 _ ioad
+    not reg0 _ reg24
+    sub reg24 1 ioc
+    mov 256 _ ioad
+    mov 15 _ ioc
+    iret _ _ _ 
+
+label interrupt
+    nop _ _ _
+    memr _ intc wimm
+    jmp _ _ wimm
+
+label init
+    mov 0b1010 _ reg1
+    mov 256 _ ioad
+    mov reg1 _ ioc
+    jmp _ _ main
+
+label main
+    int _ 0 _
+    call _ _ sleep
+    jmp _ _ main
+
+label sleep
+    add timer 1000 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _

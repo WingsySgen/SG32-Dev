@@ -1,0 +1,18 @@
+#const HEAP_MAX_SIZE 128
+const ERROR_CODE 1
+
+label up
+
+
+label down
+
+
+global push
+
+
+global pop
+    
+
+global top
+    mov ROOT _ r23 
+    ret _ _ _ 

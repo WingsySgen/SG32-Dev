@@ -1,0 +1,18 @@
+locate 0x100
+
+label init 
+    mov 0 _ r1
+    mov led _ ioad
+    mov r1 _ ioc
+    jmp _ _ main
+
+include "std\\stdlib"
+include "std\\stdlib"
+
+label main
+    add r1 1 r1
+    not r1 _ r2
+    mov led _ ioad
+    mov r2 _ ioc
+    call _ _ sleep
+    jmp _ _ main

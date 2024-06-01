@@ -1,0 +1,19 @@
+#基础中断测试
+#仿真
+#触发除零中断，除零中断会自增reg1
+
+nop _ _ _ 
+jmp _ _ init
+jmp _ _ interrupt
+
+label interrupt
+    add reg1 1 reg1
+    iret _ _ _
+
+label init
+    mov 0 _ reg1
+    jmp _ _ main
+
+label main
+    div reg2 reg0 reg2
+    jmp _ _ main

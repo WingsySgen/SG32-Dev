@@ -1,0 +1,164 @@
+#UART非中断发送接收
+#接收到open时点亮LED组
+#接收到close时熄灭LED组
+
+STRING __wrong WrongOperation!!
+nop _ _ _ 
+jmp _ _ init
+#jmp _ _ interrupt 
+
+#label interrupt
+    #memr _ intc wimm
+    #jmp _ _ wimm
+
+label init
+    call _ _ uart_init
+    jmp _ _ main
+
+label main
+    mov 0x100 _ reg5
+    call _ _ catch_line
+    call _ _ judge
+    label main_if_1
+        jne reg23 reg0 main_if_1_elif_1
+        mov __wrong _ reg6 
+        call _ _ print_line
+        jmp _ _ main_if_1_end 
+    label main_if_1_elif_1
+        mov 1 _ wimm
+        jne reg23 wimm main_if_1_elif_2
+        call _ _ open
+        jmp _ _ main_if_1_end
+    label main_if_1_elif_2
+        mov 2 _ wimm
+        jne reg23 wimm main_if_1_elif_3
+        call _ _ close
+        jmp _ _ main_if_1_end
+    label main_if_1_elif_3
+    label main_if_1_end
+    mov 0x100 _ reg6
+    call _ _ print_line
+    jmp _ _ main
+
+label catch_line
+    mov 0 _ reg23
+    label catch_line_loop
+        call _ _ uart_rd
+        memw reg23 reg5 _ 
+        add reg5 1 reg5
+        mov 13 _ wimm
+        jne reg23 wimm catch_line_loop_1
+        memw reg0 reg5 _ 
+        add reg5 1 reg5 
+        ret _ _ _ 
+    label catch_line_loop_1
+        mov 10 _ wimm
+        jne reg23 wimm catch_line_loop
+        memw reg0 reg5 _ 
+        add reg5 1 reg5 
+        ret _ _ _
+
+label print_line
+    label print_line_loop
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        je reg23 reg0 print_line_loop_end
+        call _ _ uart_wt
+        jmp _ _ print_line_loop
+    label print_line_loop_end
+        ret _ _ _ 
+
+    
+label judge
+    label judge_open
+        mov 0x100 _ reg6
+        mov 111 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_close
+        mov 112 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_close
+        mov 101 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_close
+        mov 110 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_close
+        mov 1 _ reg23
+        ret _ _ _ 
+    label judge_close
+        mov 0x100 _ reg6
+        mov 99 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_other
+        mov 108 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_other
+        mov 111 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_other
+        mov 115 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_other
+        mov 101 _ wimm 
+        memr _ reg6 reg23
+        add reg6 1 reg6
+        jne wimm reg23 judge_other
+        mov 2 _ reg23
+        ret _ _ _ 
+    label judge_other
+        mov 0 _ reg23
+        ret _ _ _ 
+
+label open
+    mov 256 _ ioad
+    mov 0 _ ioc
+    ret _ _ _ 
+
+label close
+    mov 256 _ ioad
+    mov 15 _ ioc
+    ret _ _ _
+
+label uart_init
+    mov uart.lcr _ ioad
+    mov 7 _ ioc
+    ret _ _ _
+
+label uart_wt
+    label uart_wrt_1
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov 0b01100000 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_wrt_1
+    mov uart _ ioad
+    nop _ _ _ 
+    mov reg23 _ ioc
+    ret _ _ _
+
+label uart_rd
+    label uart_rd_1
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov 1 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_rd_1
+    mov uart _ ioad
+    nop _ _ _
+    nop _ _ _
+    nop _ _ _ 
+    mov ioc _ reg23
+    ret _ _ _

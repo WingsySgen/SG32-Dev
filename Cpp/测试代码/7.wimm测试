@@ -1,0 +1,24 @@
+#wimm测试
+#仿真
+#中断号被保存在intc寄存器中，通过ram中的ivt获取处理该中断的地址
+#需要一个寄存器拥有直通总线#C的能力
+
+nop _ _ _ 
+jmp _ _ init
+jmp _ _ interrupt
+
+label interrupt
+    memr _ intc wimm
+    jmp _ _ wimm
+
+label init
+    mov 0 _ reg1
+    jmp _ _ main
+
+label main
+    div reg2 reg0 reg2
+    jmp _ _ main
+
+label int_div0
+    add 1 reg1 reg1
+    iret _ _ _ 

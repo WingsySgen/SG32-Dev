@@ -1,0 +1,26 @@
+-series GW5AST
+-device GW5AST-138B
+-device_version B
+-package FCPBGA676A
+-part_number GW5AST-LV138FPG676AES
+
+
+-mod_name CRAM
+-file_name CRAM
+-path D:/Data/FPGA_PROJECT/CPU/32bit/SG32D1.1/src/CRAM/
+-type RAM_DP
+-file_type vlg
+-bram_b true
+-dev_type GW5AST-138B
+-depth_0 8192
+-depth_1 8192
+-width_0 32
+-width_1 32
+-read_mode_0 bypass
+-read_mode_1 bypass
+-write_mode_0 normal
+-write_mode_1 normal
+-speed true
+-reset_mode sync
+-init_file D:\Data\VSCode\C++\32bitcpu\asm\prog.mi
+-init_match port_A

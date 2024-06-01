@@ -1,0 +1,52 @@
+#UART接收测试
+#烧录
+#回显串口输入的数据
+jmp _ _ init
+#jmp _ _ interrupt
+
+label init
+    call _ _ uart_init
+    mov 128 _ ioad
+    jmp _ _ main
+
+label main
+    call _ _ uart_rd
+    call _ _ uart_wt
+    jmp _ _ main
+
+label uart_init
+    mov 131 _ ioad
+    mov 7 _ ioc
+    ret _ _ _
+
+label sleep
+    add timer 1000 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _
+
+label uart_wt
+    label uart_wrt_1
+        mov 133 _ ioad
+        nop _ _ _
+        nop _ _ _
+        mov 0b01100000 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_wrt_1
+    mov 128 _ ioad
+    mov reg23 _ ioc
+    ret _ _ _
+
+label uart_rd
+    label uart_rd_1
+        mov 133 _ ioad
+        nop _ _ _
+        nop _ _ _
+        mov 1 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_rd_1
+    mov 128 _ ioad
+    nop _ _ _
+    nop _ _ _
+    mov ioc _ reg23
+    ret _ _ _

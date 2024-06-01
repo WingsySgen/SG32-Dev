@@ -1,0 +1,137 @@
+nop _ _ _ 
+jmp _ _ init
+jmp _ _ interrupt
+nop _ _ _ 
+jmp _ _ boot_serial
+
+label boot_serial
+    call _ _ uart_init 
+    mov 128+15 _ ioad 
+    mov 0 _ ioc 
+    mov 32 _ ioad 
+    mov 1 _ ioc 
+    label boot_serial_loop
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        mov 1 _ r24
+        and ioc r24 r25
+        jne r25 r24 boot_serial_loop_end
+        mov uart _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov ioc _ r0
+        jmp _ _ boot_serial_loop
+        label boot_serial_loop_end
+    label boot_serial_loop_2
+        call _ _ uart_rd
+        mov 0xff _ r22 
+        je r23 r22 boot_serial_loop_2_end
+        jmp _ _ boot_serial_loop_2
+        label boot_serial_loop_2_end
+    call _ _ uart_rd_uint
+    mov r23 _ r1
+    label boot_serial_loop_prog
+        je r1 r0 boot_serial_loop_prog_end
+        call _ _ uart_rd_uint
+        mov r23 _ r2 
+        call _ _ uart_rd_uint
+        memw r23 r2 _ 
+        sub r1 1 r1
+        jmp _ _ boot_serial_loop_prog
+        label boot_serial_loop_prog_end
+    mov 32 _ ioad 
+    mov 0 _ ioc
+    call _ _ uart_rd_uint
+    mov r23 _ r1
+    label boot_serial_loop_data
+        je r1 r0 boot_serial_loop_data_end
+        call _ _ uart_rd_uint
+        mov r23 _ r2 
+        call _ _ uart_rd_uint
+        memw r23 r2 _ 
+        sub r1 1 r1
+        jmp _ _ boot_serial_loop_data
+        label boot_serial_loop_data_end
+    jmp _ _ 0x0
+
+label init
+    call _ _ uart_init
+    jmp _ _ 0x100
+
+label interrupt
+    nop _ _ _
+    memr _ intc wimm
+    jmp _ _ wimm
+
+label uart_rd_uint
+    call _ _ uart_rd
+    mov r23 _ r14 
+    call _ _ uart_rd
+    lsh r23 8 r23 
+    or r14 r23 r14 
+    call _ _ uart_rd
+    lsh r23 16 r23 
+    or r14 r23 r14 
+    call _ _ uart_rd
+    lsh r23 24 r23 
+    or r14 r23 r14 
+    mov r14 _ r23 
+    ret _ _ _ 
+
+label uart_init
+    mov uart.lcr _ ioad
+    mov 7 _ ioc
+    ret _ _ _
+
+label uart_wt
+    label uart_wrt_1
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov 0b01100000 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_wrt_1
+    label int_uart_wt
+        mov uart _ ioad
+        nop _ _ _ 
+        mov reg23 _ ioc
+        ret _ _ _
+
+label uart_rd
+    label uart_rd_1
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov 1 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_rd_1
+    label int_uart_rd
+        mov uart _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov ioc _ reg23
+        ret _ _ _
+
+locate 0x100
+
+label __init
+    mov 0 _ r1 
+    jmp _ _ main
+
+label main
+    mov 256 _ ioad
+    mov r1 _ ioc
+    add r1 1 r1 
+    call _ _ sleep
+    jmp _ _ main
+
+label sleep
+    add timer 500 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _

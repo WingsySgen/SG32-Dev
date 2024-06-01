@@ -1,0 +1,1 @@
+g++ -fdiagnostics-color=always -g *.cpp -o sg32-asm2.0.exe -Wl,--stack=268435456

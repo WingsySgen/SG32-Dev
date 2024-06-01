@@ -1,0 +1,9 @@
+include "uart\\uart"
+global putline
+    memr _ r22 r23 
+    je r23 r0 putline_end 
+    add r22 1 r22 
+    call _ _ uart_wt
+    jmp _ _ putline
+    label putline_end
+        ret _ _ _ 

@@ -1,0 +1,310 @@
+Tue May 14 21:51:32 2024
+
+Source: D:\Data\VSCode\C++\32bitcpu\asm\design.sg
+PROG Target: D:\Data\VSCode\C++\32bitcpu\asm\prog
+Instruction Table : D:\Data\VSCode\C++\32bitcpu\asm\table\optable
+Constant Table : D:\Data\VSCode\C++\32bitcpu\asm\table\consttable
+Log   : D:\Data\VSCode\C++\32bitcpu\asm\log.txt
+
+Starting to analyze...
+    1|    0 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+    2|    1 jmp _ _ init                  //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+    3|    2 jmp _ _ interrupt             //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+    4|    3 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+    5|    4 jmp _ _ boot_serial           //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+    6|    5                               
+    7|    5 label boot_serial             //      label          boot_serial has been set to    5(   5)
+    8|    5 call _ _ uart_init            //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+    9|    6 mov 128+15 _ ioad             //  150864068 08fe00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  8f   opnum2 =   0   opnum3 =  1c
+   10|    7 mov 0 _ ioc                   //     950468 000e80c4: type =   0    imm flag =   1    opcode =   c   opnum1 =   0   opnum2 =   0   opnum3 =  1d
+   11|    8 mov 32 _ ioad                 //   34472132 020e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  20   opnum2 =   0   opnum3 =  1c
+   12|    9 mov 1 _ ioc                   //    1999044 001e80c4: type =   0    imm flag =   1    opcode =   c   opnum1 =   1   opnum2 =   0   opnum3 =  1d
+   13|   10 label boot_serial_loop        //      label     boot_serial_loop has been set to   10(   a)
+   14|   10 mov uart.lsr _ ioad           //  140378308 085e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  85   opnum2 =   0   opnum3 =  1c
+   15|   11 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   16|   12 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   17|   13 mov 1 _ r24                   //    1835204 001c00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =   1   opnum2 =   0   opnum3 =  18
+   18|   14 and ioc r24 r25               //   27030624 019c7460: type =   0    imm flag =   0    opcode =   6   opnum1 =  1d   opnum2 =  18   opnum3 =  19
+   19|   15 jne r25 r24 boot_serial_loop_end //     812078 000c642e: type =   2    imm flag =   3    opcode =   2   opnum1 =  19   opnum2 =  18   opnum3 = waiting fillback.
+   20|   16 mov uart _ ioad               //  135135428 080e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  80   opnum2 =   0   opnum3 =  1c
+   21|   17 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   22|   18 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   23|   19 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   24|   20 mov ioc _ r0                  //      29888 000074c0: type =   0    imm flag =   0    opcode =   c   opnum1 =  1d   opnum2 =   0   opnum3 =   0
+   25|   21 jmp _ _ boot_serial_loop      //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   26|   22 label boot_serial_loop_end    //      label boot_serial_loop_end has been set to   22(  16)
+   27|   22 label boot_serial_loop_2      //      label   boot_serial_loop_2 has been set to   22(  16)
+   28|   22 call _ _ uart_rd              //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   29|   23 mov 0xff _ r22                //  268107972 0ffb00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  ff   opnum2 =   0   opnum3 =  16
+   30|   24 je r23 r22 boot_serial_loop_2_end //     744478 000b5c1e: type =   2    imm flag =   3    opcode =   1   opnum1 =  17   opnum2 =  16   opnum3 = waiting fillback.
+   31|   25 jmp _ _ boot_serial_loop_2    //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   32|   26 label boot_serial_loop_2_end  //      label boot_serial_loop_2_end has been set to   26(  1a)
+   33|   26 call _ _ uart_rd_uint         //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   34|   27 mov r23 _ r1                  //    1072320 00105cc0: type =   0    imm flag =   0    opcode =   c   opnum1 =  17   opnum2 =   0   opnum3 =   1
+   35|   28 label boot_serial_loop_prog   //      label boot_serial_loop_prog has been set to   28(  1c)
+   36|   28 je r1 r0 boot_serial_loop_prog_end //       1054 0000041e: type =   2    imm flag =   3    opcode =   1   opnum1 =   1   opnum2 =   0   opnum3 = waiting fillback.
+   37|   29 call _ _ uart_rd_uint         //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   38|   30 mov r23 _ r2                  //    2120896 00205cc0: type =   0    imm flag =   0    opcode =   c   opnum1 =  17   opnum2 =   0   opnum3 =   2
+   39|   31 call _ _ uart_rd_uint         //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   40|   32 memw r23 r2 _                 //      89105 00015c11: type =   1    imm flag =   0    opcode =   1   opnum1 =  17   opnum2 =   2   opnum3 =   0
+   41|   33 sub r1 1 r1                   //    1082392 00108418: type =   0    imm flag =   2    opcode =   1   opnum1 =   1   opnum2 =   1   opnum3 =   1
+   42|   34 jmp _ _ boot_serial_loop_prog //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   43|   35 label boot_serial_loop_prog_end //      label boot_serial_loop_prog_end has been set to   35(  23)
+   44|   35 mov 32 _ ioad                 //   34472132 020e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  20   opnum2 =   0   opnum3 =  1c
+   45|   36 mov 0 _ ioc                   //     950468 000e80c4: type =   0    imm flag =   1    opcode =   c   opnum1 =   0   opnum2 =   0   opnum3 =  1d
+   46|   37 call _ _ uart_rd_uint         //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   47|   38 mov r23 _ r1                  //    1072320 00105cc0: type =   0    imm flag =   0    opcode =   c   opnum1 =  17   opnum2 =   0   opnum3 =   1
+   48|   39 label boot_serial_loop_data   //      label boot_serial_loop_data has been set to   39(  27)
+   49|   39 je r1 r0 boot_serial_loop_data_end //       1054 0000041e: type =   2    imm flag =   3    opcode =   1   opnum1 =   1   opnum2 =   0   opnum3 = waiting fillback.
+   50|   40 call _ _ uart_rd_uint         //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   51|   41 mov r23 _ r2                  //    2120896 00205cc0: type =   0    imm flag =   0    opcode =   c   opnum1 =  17   opnum2 =   0   opnum3 =   2
+   52|   42 call _ _ uart_rd_uint         //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   53|   43 memw r23 r2 _                 //      89105 00015c11: type =   1    imm flag =   0    opcode =   1   opnum1 =  17   opnum2 =   2   opnum3 =   0
+   54|   44 sub r1 1 r1                   //    1082392 00108418: type =   0    imm flag =   2    opcode =   1   opnum1 =   1   opnum2 =   1   opnum3 =   1
+   55|   45 jmp _ _ boot_serial_loop_data //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   56|   46 label boot_serial_loop_data_end //      label boot_serial_loop_data_end has been set to   46(  2e)
+   57|   46 jmp _ _ 0x0                   //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   58|   47                               
+   59|   47 label init                    //      label                 init has been set to   47(  2f)
+   60|   47 call _ _ uart_init            //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   61|   48 jmp _ _ 0x100                 //  268435470 1000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = 100
+   62|   49                               
+   63|   49 label interrupt               //      label            interrupt has been set to   49(  31)
+   64|   49 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   65|   50 memr _ intc wimm              //   28147713 01ad8001: type =   1    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =  1b   opnum3 =  1a
+   66|   51 jmp _ _ wimm                  //   27262978 01a00002: type =   2    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =  1a
+   67|   52                               
+   68|   52 label uart_rd_uint            //      label         uart_rd_uint has been set to   52(  34)
+   69|   52 call _ _ uart_rd              //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   70|   53 mov r23 _ r14                 //   14703808 00e05cc0: type =   0    imm flag =   0    opcode =   c   opnum1 =  17   opnum2 =   0   opnum3 =   e
+   71|   54 call _ _ uart_rd              //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   72|   55 lsh r23 8 r23                 //    9165992 008bdca8: type =   0    imm flag =   2    opcode =   a   opnum1 =  17   opnum2 =   8   opnum3 =  17
+   73|   56 or r14 r23 r14                //   15448176 00ebb870: type =   0    imm flag =   0    opcode =   7   opnum1 =   e   opnum2 =  17   opnum3 =   e
+   74|   57 call _ _ uart_rd              //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   75|   58 lsh r23 16 r23                //   17554600 010bdca8: type =   0    imm flag =   2    opcode =   a   opnum1 =  17   opnum2 =  10   opnum3 =  17
+   76|   59 or r14 r23 r14                //   15448176 00ebb870: type =   0    imm flag =   0    opcode =   7   opnum1 =   e   opnum2 =  17   opnum3 =   e
+   77|   60 call _ _ uart_rd              //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+   78|   61 lsh r23 24 r23                //   25943208 018bdca8: type =   0    imm flag =   2    opcode =   a   opnum1 =  17   opnum2 =  18   opnum3 =  17
+   79|   62 or r14 r23 r14                //   15448176 00ebb870: type =   0    imm flag =   0    opcode =   7   opnum1 =   e   opnum2 =  17   opnum3 =   e
+   80|   63 mov r14 _ r23                 //   24131776 017038c0: type =   0    imm flag =   0    opcode =   c   opnum1 =   e   opnum2 =   0   opnum3 =  17
+   81|   64 ret _ _ _                     //        130 00000082: type =   2    imm flag =   0    opcode =   8   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   82|   65                               
+   83|   65 label uart_init               //      label            uart_init has been set to   65(  41)
+   84|   65 mov uart.lcr _ ioad           //  138281156 083e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  83   opnum2 =   0   opnum3 =  1c
+   85|   66 mov 7 _ ioc                   //    8290500 007e80c4: type =   0    imm flag =   1    opcode =   c   opnum1 =   7   opnum2 =   0   opnum3 =  1d
+   86|   67 ret _ _ _                     //        130 00000082: type =   2    imm flag =   0    opcode =   8   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   87|   68                               
+   88|   68 label uart_wt                 //      label              uart_wt has been set to   68(  44)
+   89|   68 label uart_wrt_1              //      label           uart_wrt_1 has been set to   68(  44)
+   90|   68 mov uart.lsr _ ioad           //  140378308 085e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  85   opnum2 =   0   opnum3 =  1c
+   91|   69 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   92|   70 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   93|   71 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+   94|   72 mov 0b01100000 _ reg24        //  101449924 060c00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  60   opnum2 =   0   opnum3 =  18
+   95|   73 and ioc reg24 reg25           //   27030624 019c7460: type =   0    imm flag =   0    opcode =   6   opnum1 =  1d   opnum2 =  18   opnum3 =  19
+   96|   74 jne reg25 reg24 uart_wrt_1    //     812078 000c642e: type =   2    imm flag =   3    opcode =   2   opnum1 =  19   opnum2 =  18   opnum3 = waiting fillback.
+   97|   75 label int_uart_wt             //      label          int_uart_wt has been set to   75(  4b)
+   98|   75 mov uart _ ioad               //  135135428 080e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  80   opnum2 =   0   opnum3 =  1c
+   99|   76 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  100|   77 mov reg23 _ ioc               //   30432448 01d05cc0: type =   0    imm flag =   0    opcode =   c   opnum1 =  17   opnum2 =   0   opnum3 =  1d
+  101|   78 ret _ _ _                     //        130 00000082: type =   2    imm flag =   0    opcode =   8   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  102|   79                               
+  103|   79 label uart_rd                 //      label              uart_rd has been set to   79(  4f)
+  104|   79 label uart_rd_1               //      label            uart_rd_1 has been set to   79(  4f)
+  105|   79 mov uart.lsr _ ioad           //  140378308 085e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  85   opnum2 =   0   opnum3 =  1c
+  106|   80 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  107|   81 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  108|   82 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  109|   83 mov 1 _ reg24                 //    1835204 001c00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =   1   opnum2 =   0   opnum3 =  18
+  110|   84 and ioc reg24 reg25           //   27030624 019c7460: type =   0    imm flag =   0    opcode =   6   opnum1 =  1d   opnum2 =  18   opnum3 =  19
+  111|   85 jne reg25 reg24 uart_rd_1     //     812078 000c642e: type =   2    imm flag =   3    opcode =   2   opnum1 =  19   opnum2 =  18   opnum3 = waiting fillback.
+  112|   86 label int_uart_rd             //      label          int_uart_rd has been set to   86(  56)
+  113|   86 mov uart _ ioad               //  135135428 080e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 =  80   opnum2 =   0   opnum3 =  1c
+  114|   87 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  115|   88 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  116|   89 nop _ _ _                     //          0 00000000: type =   0    imm flag =   0    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  117|   90 mov ioc _ reg23               //   24147136 017074c0: type =   0    imm flag =   0    opcode =   c   opnum1 =  1d   opnum2 =   0   opnum3 =  17
+  118|   91 ret _ _ _                     //        130 00000082: type =   2    imm flag =   0    opcode =   8   opnum1 =   0   opnum2 =   0   opnum3 =   0
+  119|   92                               
+  120|   92 locate 0x100                  
+  121|  256                               
+  122|  256 label __init                  //      label               __init has been set to   92(  5c)
+  123|  256 mov 0 _ r1                    //      32964 000080c4: type =   0    imm flag =   1    opcode =   c   opnum1 =   0   opnum2 =   0   opnum3 =   1
+  124|  257 jmp _ _ main                  //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+  125|  258                               
+  126|  258 label main                    //      label                 main has been set to   94(  5e)
+  127|  258 mov 256 _ ioad                //  269353156 100e00c4: type =   0    imm flag =   1    opcode =   c   opnum1 = 100   opnum2 =   0   opnum3 =  1c
+  128|  259 mov r1 _ ioc                  //   30409920 01d004c0: type =   0    imm flag =   0    opcode =   c   opnum1 =   1   opnum2 =   0   opnum3 =  1d
+  129|  260 add r1 1 r1                   //    1082376 00108408: type =   0    imm flag =   2    opcode =   0   opnum1 =   1   opnum2 =   1   opnum3 =   1
+  130|  261 call _ _ sleep                //        158 0000009e: type =   2    imm flag =   3    opcode =   9   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+  131|  262 jmp _ _ main                  //         14 0000000e: type =   2    imm flag =   3    opcode =   0   opnum1 =   0   opnum2 =   0   opnum3 = waiting fillback.
+  132|  263                               
+  133|  263 label sleep                   //      label                sleep has been set to   99(  63)
+  134|  263 add timer 500 reg25           //  525137928 1f4cf808: type =   0    imm flag =   2    opcode =   0   opnum1 =  1e   opnum2 = 1f4   opnum3 =  19
+  135|  264 label sleep_1                 //      label              sleep_1 has been set to  100(  64)
+  136|  264 jne timer reg25 sleep_1       //     849966 000cf82e: type =   2    imm flag =   3    opcode =   2   opnum1 =  1e   opnum2 =  19   opnum3 = waiting fillback.
+  137|  265 ret _ _ _                     //        130 00000082: type =   2    imm flag =   0    opcode =   8   opnum1 =   0   opnum2 =   0   opnum3 =   0
+
+Starting to backfill all labels...
+    label __init : 100
+    label boot_serial : 5
+        Line 5 (4).
+    label boot_serial_loop : a
+        Line 19 (15).
+    label boot_serial_loop_2 : 16
+        Line 1f (19).
+    label boot_serial_loop_2_end : 1a
+        Line 1e (18).
+    label boot_serial_loop_data : 27
+        Line 37 (2d).
+    label boot_serial_loop_data_end : 2e
+        Line 31 (27).
+    label boot_serial_loop_end : 16
+        Line 13 (f).
+    label boot_serial_loop_prog : 1c
+        Line 2a (22).
+    label boot_serial_loop_prog_end : 23
+        Line 24 (1c).
+    label init : 2f
+        Line 2 (1).
+    label int_uart_rd : 56
+    label int_uart_wt : 4b
+    label interrupt : 31
+        Line 3 (2).
+    label main : 102
+        Line 7c (5d).
+        Line 83 (62).
+    label sleep : 107
+        Line 82 (61).
+    label sleep_1 : 108
+        Line 88 (64).
+    label uart_init : 41
+        Line 8 (5).
+        Line 3c (2f).
+    label uart_rd : 4f
+        Line 1c (16).
+        Line 45 (34).
+        Line 47 (36).
+        Line 4a (39).
+        Line 4d (3c).
+    label uart_rd_1 : 4f
+        Line 6f (55).
+    label uart_rd_uint : 34
+        Line 21 (1a).
+        Line 25 (1d).
+        Line 27 (1f).
+        Line 2e (25).
+        Line 32 (28).
+        Line 34 (2a).
+    label uart_wrt_1 : 44
+        Line 60 (4a).
+    label uart_wt : 44
+
+    backfill done.
+
+Summary:
+
+    0 nop _ _ _                     //00000000
+    1 jmp _ _ init                  //02f0000e
+    2 jmp _ _ interrupt             //0310000e
+    3 nop _ _ _                     //00000000
+    4 jmp _ _ boot_serial           //0050000e
+    5 call _ _ uart_init            //0410009e
+    6 mov 128+15 _ ioad             //08fe00c4
+    7 mov 0 _ ioc                   //000e80c4
+    8 mov 32 _ ioad                 //020e00c4
+    9 mov 1 _ ioc                   //001e80c4
+   10 mov uart.lsr _ ioad           //085e00c4ory/
+   11 nop _ _ _                     //00000000
+   12 nop _ _ _                     //00000000
+   13 mov 1 _ r24                   //001c00c4
+   14 and ioc r24 r25               //019c7460
+   15 jne r25 r24 boot_serial_loop_end //016c642e
+   16 mov uart _ ioad               //080e00c4
+   17 nop _ _ _                     //00000000
+   18 nop _ _ _                     //00000000
+   19 nop _ _ _                     //00000000
+   20 mov ioc _ r0                  //000074c0
+   21 jmp _ _ boot_serial_loop      //00a0000e
+   22 call _ _ uart_rd              //04f0009e
+   23 mov 0xff _ r22                //0ffb00c4
+   24 je r23 r22 boot_serial_loop_2_end //01ab5c1e
+   25 jmp _ _ boot_serial_loop_2    //0160000e
+   26 call _ _ uart_rd_uint         //0340009e
+   27 mov r23 _ r1                  //00105cc0
+   28 je r1 r0 boot_serial_loop_prog_end //0230041e
+   29 call _ _ uart_rd_uint         //0340009e
+   30 mov r23 _ r2                  //00205cc0
+   31 call _ _ uart_rd_uint         //0340009e
+   32 memw r23 r2 _                 //00015c11
+   33 sub r1 1 r1                   //00108418
+   34 jmp _ _ boot_serial_loop_prog //01c0000e
+   35 mov 32 _ ioad                 //020e00c4
+   36 mov 0 _ ioc                   //000e80c4
+   37 call _ _ uart_rd_uint         //0340009e
+   38 mov r23 _ r1                  //00105cc0
+   39 je r1 r0 boot_serial_loop_data_end //02e0041e
+   40 call _ _ uart_rd_uint         //0340009e
+   41 mov r23 _ r2                  //00205cc0
+   42 call _ _ uart_rd_uint         //0340009e
+   43 memw r23 r2 _                 //00015c11
+   44 sub r1 1 r1                   //00108418
+   45 jmp _ _ boot_serial_loop_data //0270000e
+   46 jmp _ _ 0x0                   //0000000e
+   47 call _ _ uart_init            //0410009e
+   48 jmp _ _ 0x100                 //1000000e
+   49 nop _ _ _                     //00000000
+   50 memr _ intc wimm              //01ad8001
+   51 jmp _ _ wimm                  //01a00002
+   52 call _ _ uart_rd              //04f0009e
+   53 mov r23 _ r14                 //00e05cc0
+   54 call _ _ uart_rd              //04f0009e
+   55 lsh r23 8 r23                 //008bdca8
+   56 or r14 r23 r14                //00ebb870
+   57 call _ _ uart_rd              //04f0009e
+   58 lsh r23 16 r23                //010bdca8
+   59 or r14 r23 r14                //00ebb870
+   60 call _ _ uart_rd              //04f0009e
+   61 lsh r23 24 r23                //018bdca8
+   62 or r14 r23 r14                //00ebb870
+   63 mov r14 _ r23                 //017038c0
+   64 ret _ _ _                     //00000082
+   65 mov uart.lcr _ ioad           //083e00c4
+   66 mov 7 _ ioc                   //007e80c4
+   67 ret _ _ _                     //00000082
+   68 mov uart.lsr _ ioad           //085e00c4
+   69 nop _ _ _                     //00000000
+   70 nop _ _ _                     //00000000
+   71 nop _ _ _                     //00000000
+   72 mov 0b01100000 _ reg24        //060c00c4
+   73 and ioc reg24 reg25           //019c7460
+   74 jne reg25 reg24 uart_wrt_1    //044c642e
+   75 mov uart _ ioad               //080e00c4
+   76 nop _ _ _                     //00000000
+   77 mov reg23 _ ioc               //01d05cc0
+   78 ret _ _ _                     //00000082
+   79 mov uart.lsr _ ioad           //085e00c4
+   80 nop _ _ _                     //00000000
+   81 nop _ _ _                     //00000000
+   82 nop _ _ _                     //00000000
+   83 mov 1 _ reg24                 //001c00c4
+   84 and ioc reg24 reg25           //019c7460
+   85 jne reg25 reg24 uart_rd_1     //04fc642e
+   86 mov uart _ ioad               //080e00c4
+   87 nop _ _ _                     //00000000
+   88 nop _ _ _                     //00000000
+   89 nop _ _ _                     //00000000
+   90 mov ioc _ reg23               //017074c0
+   91 ret _ _ _                     //00000082
+  256 mov 0 _ r1                    //000080c4
+  257 jmp _ _ main                  //1020000e
+  258 mov 256 _ ioad                //100e00c4
+  259 mov r1 _ ioc                  //01d004c0
+  260 add r1 1 r1                   //00108408
+  261 call _ _ sleep                //1070009e
+  262 jmp _ _ main                  //1020000e
+  263 add timer 500 reg25           //1f4cf808
+  264 jne timer reg25 sleep_1       //108cf82e
+  265 ret _ _ _                     //00000082
+
+----------DONE----------

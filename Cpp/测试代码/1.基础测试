@@ -1,0 +1,7 @@
+#基础测试
+#仿真
+
+mov 0 _ reg1
+label loop
+    add 1 reg1 reg1
+    jmp _ _ loop

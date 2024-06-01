@@ -1,0 +1,41 @@
+#软中断测试1
+#仿真
+#触发软中断进入0号中断
+#reg1初始为0b1010，不断取反
+
+nop _ _ _ 
+jmp _ _ init
+jmp _ _ interrupt
+
+label interrupt
+    memr _ intc wimm
+    jmp _ _ wimm
+
+label init
+    mov 0b1010 _ reg1
+    mov 256 _ ioad
+    mov reg1 _ ioc
+    jmp _ _ main
+
+label main
+    int _ 0 _
+    nop _ _ _
+    jmp _ _ main
+
+label sleep
+    add timer 0 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _
+
+label int_div0
+
+    not reg1 _ reg1
+    mov 256 _ ioad
+    mov reg1 _ ioc
+    iret _ _ _
+
+label int_btn
+    mov 256 _ ioad
+    mov 15 _ ioc
+    iret _ _ _ 

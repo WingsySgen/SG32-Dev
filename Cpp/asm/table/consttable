@@ -1,0 +1,21 @@
+icr     0
+
+boot    32
+
+sht     48
+
+mht     64
+mht.icr     79
+
+uart    128
+uart.rbr    128
+uart.thr    128
+uart.ier    129
+uart.iir    130
+uart.lcr    131
+uart.mcr    132
+uart.lsr    133
+uart.msr    134
+uart.icr    143
+
+led     256

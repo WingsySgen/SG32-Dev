@@ -1,0 +1,21 @@
+#汇编器测试
+
+#1.忽略注释
+#2.忽略行首空格
+      
+#3.忽略空行
+
+#4.重复label
+label abc
+    mov reg1 _ reg1
+label abc       #这个abc应该被报告错误
+
+#5.跳转到不存在的label
+jmp _ _ abcd
+
+#6.错误label
+lebel abc
+labal abc
+
+#7.错误指令
+jmp abc

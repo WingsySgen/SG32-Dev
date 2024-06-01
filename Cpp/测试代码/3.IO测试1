@@ -1,0 +1,23 @@
+#基础IO测试
+#烧录
+#IO是一个4位的led组，每一秒reg1自增1，写入led组
+
+jmp _ _ init
+#jmp _ _ interrupt
+
+label init
+    mov 0 _ reg1
+    mov 256 _ ioad
+    jmp _ _ main
+
+label main
+    add 1 reg1 reg1
+    mov reg1 _ ioc
+    call _ _ sleep
+    jmp _ _ main
+
+label sleep
+    add timer 1000 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _

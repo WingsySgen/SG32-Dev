@@ -1,0 +1,332 @@
+<?xml version="1" encoding="UTF-8"?>
+<GAO_CONFIG>
+    <Version>3.0</Version>
+    <Mode>Standard</Mode>
+    <AoCore index="0" sample_clock="clk_sys" trig_type="0" storage_depth="16384" window_num="1" capture_amount="16384" implementation="0" trigger_pos="0" module_name="Top" force_trigger_by_falling_edge="true" capture_init_data_enabled="false">
+        <SignalList>
+            <Signal capture_enable="true">clk</Signal>
+            <Bus capture_enable="true" name="core_0/pc/data[31:0]">
+                <Signal>core_0/pc/data[31]</Signal>
+                <Signal>core_0/pc/data[30]</Signal>
+                <Signal>core_0/pc/data[29]</Signal>
+                <Signal>core_0/pc/data[28]</Signal>
+                <Signal>core_0/pc/data[27]</Signal>
+                <Signal>core_0/pc/data[26]</Signal>
+                <Signal>core_0/pc/data[25]</Signal>
+                <Signal>core_0/pc/data[24]</Signal>
+                <Signal>core_0/pc/data[23]</Signal>
+                <Signal>core_0/pc/data[22]</Signal>
+                <Signal>core_0/pc/data[21]</Signal>
+                <Signal>core_0/pc/data[20]</Signal>
+                <Signal>core_0/pc/data[19]</Signal>
+                <Signal>core_0/pc/data[18]</Signal>
+                <Signal>core_0/pc/data[17]</Signal>
+                <Signal>core_0/pc/data[16]</Signal>
+                <Signal>core_0/pc/data[15]</Signal>
+                <Signal>core_0/pc/data[14]</Signal>
+                <Signal>core_0/pc/data[13]</Signal>
+                <Signal>core_0/pc/data[12]</Signal>
+                <Signal>core_0/pc/data[11]</Signal>
+                <Signal>core_0/pc/data[10]</Signal>
+                <Signal>core_0/pc/data[9]</Signal>
+                <Signal>core_0/pc/data[8]</Signal>
+                <Signal>core_0/pc/data[7]</Signal>
+                <Signal>core_0/pc/data[6]</Signal>
+                <Signal>core_0/pc/data[5]</Signal>
+                <Signal>core_0/pc/data[4]</Signal>
+                <Signal>core_0/pc/data[3]</Signal>
+                <Signal>core_0/pc/data[2]</Signal>
+                <Signal>core_0/pc/data[1]</Signal>
+                <Signal>core_0/pc/data[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="core_0/rom_o[31:0]">
+                <Signal>core_0/rom_o[31]</Signal>
+                <Signal>core_0/rom_o[30]</Signal>
+                <Signal>core_0/rom_o[29]</Signal>
+                <Signal>core_0/rom_o[28]</Signal>
+                <Signal>core_0/rom_o[27]</Signal>
+                <Signal>core_0/rom_o[26]</Signal>
+                <Signal>core_0/rom_o[25]</Signal>
+                <Signal>core_0/rom_o[24]</Signal>
+                <Signal>core_0/rom_o[23]</Signal>
+                <Signal>core_0/rom_o[22]</Signal>
+                <Signal>core_0/rom_o[21]</Signal>
+                <Signal>core_0/rom_o[20]</Signal>
+                <Signal>core_0/rom_o[19]</Signal>
+                <Signal>core_0/rom_o[18]</Signal>
+                <Signal>core_0/rom_o[17]</Signal>
+                <Signal>core_0/rom_o[16]</Signal>
+                <Signal>core_0/rom_o[15]</Signal>
+                <Signal>core_0/rom_o[14]</Signal>
+                <Signal>core_0/rom_o[13]</Signal>
+                <Signal>core_0/rom_o[12]</Signal>
+                <Signal>core_0/rom_o[11]</Signal>
+                <Signal>core_0/rom_o[10]</Signal>
+                <Signal>core_0/rom_o[9]</Signal>
+                <Signal>core_0/rom_o[8]</Signal>
+                <Signal>core_0/rom_o[7]</Signal>
+                <Signal>core_0/rom_o[6]</Signal>
+                <Signal>core_0/rom_o[5]</Signal>
+                <Signal>core_0/rom_o[4]</Signal>
+                <Signal>core_0/rom_o[3]</Signal>
+                <Signal>core_0/rom_o[2]</Signal>
+                <Signal>core_0/rom_o[1]</Signal>
+                <Signal>core_0/rom_o[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="core_0/gpr_o[1][31:0]">
+                <Signal>core_0/gpr_o[1][31]</Signal>
+                <Signal>core_0/gpr_o[1][30]</Signal>
+                <Signal>core_0/gpr_o[1][29]</Signal>
+                <Signal>core_0/gpr_o[1][28]</Signal>
+                <Signal>core_0/gpr_o[1][27]</Signal>
+                <Signal>core_0/gpr_o[1][26]</Signal>
+                <Signal>core_0/gpr_o[1][25]</Signal>
+                <Signal>core_0/gpr_o[1][24]</Signal>
+                <Signal>core_0/gpr_o[1][23]</Signal>
+                <Signal>core_0/gpr_o[1][22]</Signal>
+                <Signal>core_0/gpr_o[1][21]</Signal>
+                <Signal>core_0/gpr_o[1][20]</Signal>
+                <Signal>core_0/gpr_o[1][19]</Signal>
+                <Signal>core_0/gpr_o[1][18]</Signal>
+                <Signal>core_0/gpr_o[1][17]</Signal>
+                <Signal>core_0/gpr_o[1][16]</Signal>
+                <Signal>core_0/gpr_o[1][15]</Signal>
+                <Signal>core_0/gpr_o[1][14]</Signal>
+                <Signal>core_0/gpr_o[1][13]</Signal>
+                <Signal>core_0/gpr_o[1][12]</Signal>
+                <Signal>core_0/gpr_o[1][11]</Signal>
+                <Signal>core_0/gpr_o[1][10]</Signal>
+                <Signal>core_0/gpr_o[1][9]</Signal>
+                <Signal>core_0/gpr_o[1][8]</Signal>
+                <Signal>core_0/gpr_o[1][7]</Signal>
+                <Signal>core_0/gpr_o[1][6]</Signal>
+                <Signal>core_0/gpr_o[1][5]</Signal>
+                <Signal>core_0/gpr_o[1][4]</Signal>
+                <Signal>core_0/gpr_o[1][3]</Signal>
+                <Signal>core_0/gpr_o[1][2]</Signal>
+                <Signal>core_0/gpr_o[1][1]</Signal>
+                <Signal>core_0/gpr_o[1][0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="core_0/gpr_o[22][31:0]">
+                <Signal>core_0/gpr_o[22][31]</Signal>
+                <Signal>core_0/gpr_o[22][30]</Signal>
+                <Signal>core_0/gpr_o[22][29]</Signal>
+                <Signal>core_0/gpr_o[22][28]</Signal>
+                <Signal>core_0/gpr_o[22][27]</Signal>
+                <Signal>core_0/gpr_o[22][26]</Signal>
+                <Signal>core_0/gpr_o[22][25]</Signal>
+                <Signal>core_0/gpr_o[22][24]</Signal>
+                <Signal>core_0/gpr_o[22][23]</Signal>
+                <Signal>core_0/gpr_o[22][22]</Signal>
+                <Signal>core_0/gpr_o[22][21]</Signal>
+                <Signal>core_0/gpr_o[22][20]</Signal>
+                <Signal>core_0/gpr_o[22][19]</Signal>
+                <Signal>core_0/gpr_o[22][18]</Signal>
+                <Signal>core_0/gpr_o[22][17]</Signal>
+                <Signal>core_0/gpr_o[22][16]</Signal>
+                <Signal>core_0/gpr_o[22][15]</Signal>
+                <Signal>core_0/gpr_o[22][14]</Signal>
+                <Signal>core_0/gpr_o[22][13]</Signal>
+                <Signal>core_0/gpr_o[22][12]</Signal>
+                <Signal>core_0/gpr_o[22][11]</Signal>
+                <Signal>core_0/gpr_o[22][10]</Signal>
+                <Signal>core_0/gpr_o[22][9]</Signal>
+                <Signal>core_0/gpr_o[22][8]</Signal>
+                <Signal>core_0/gpr_o[22][7]</Signal>
+                <Signal>core_0/gpr_o[22][6]</Signal>
+                <Signal>core_0/gpr_o[22][5]</Signal>
+                <Signal>core_0/gpr_o[22][4]</Signal>
+                <Signal>core_0/gpr_o[22][3]</Signal>
+                <Signal>core_0/gpr_o[22][2]</Signal>
+                <Signal>core_0/gpr_o[22][1]</Signal>
+                <Signal>core_0/gpr_o[22][0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="core_0/gpr_o[23][31:0]">
+                <Signal>core_0/gpr_o[23][31]</Signal>
+                <Signal>core_0/gpr_o[23][30]</Signal>
+                <Signal>core_0/gpr_o[23][29]</Signal>
+                <Signal>core_0/gpr_o[23][28]</Signal>
+                <Signal>core_0/gpr_o[23][27]</Signal>
+                <Signal>core_0/gpr_o[23][26]</Signal>
+                <Signal>core_0/gpr_o[23][25]</Signal>
+                <Signal>core_0/gpr_o[23][24]</Signal>
+                <Signal>core_0/gpr_o[23][23]</Signal>
+                <Signal>core_0/gpr_o[23][22]</Signal>
+                <Signal>core_0/gpr_o[23][21]</Signal>
+                <Signal>core_0/gpr_o[23][20]</Signal>
+                <Signal>core_0/gpr_o[23][19]</Signal>
+                <Signal>core_0/gpr_o[23][18]</Signal>
+                <Signal>core_0/gpr_o[23][17]</Signal>
+                <Signal>core_0/gpr_o[23][16]</Signal>
+                <Signal>core_0/gpr_o[23][15]</Signal>
+                <Signal>core_0/gpr_o[23][14]</Signal>
+                <Signal>core_0/gpr_o[23][13]</Signal>
+                <Signal>core_0/gpr_o[23][12]</Signal>
+                <Signal>core_0/gpr_o[23][11]</Signal>
+                <Signal>core_0/gpr_o[23][10]</Signal>
+                <Signal>core_0/gpr_o[23][9]</Signal>
+                <Signal>core_0/gpr_o[23][8]</Signal>
+                <Signal>core_0/gpr_o[23][7]</Signal>
+                <Signal>core_0/gpr_o[23][6]</Signal>
+                <Signal>core_0/gpr_o[23][5]</Signal>
+                <Signal>core_0/gpr_o[23][4]</Signal>
+                <Signal>core_0/gpr_o[23][3]</Signal>
+                <Signal>core_0/gpr_o[23][2]</Signal>
+                <Signal>core_0/gpr_o[23][1]</Signal>
+                <Signal>core_0/gpr_o[23][0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">core_0/boot_en_interface/boot_mode</Signal>
+            <Signal capture_enable="true">core_0/uart_0/int</Signal>
+            <Signal capture_enable="true">core_0/uart_0/rxrdy_n</Signal>
+            <Bus capture_enable="true" name="core_0/memory/dram/doutb[31:0]">
+                <Signal>core_0/memory/dram/doutb[31]</Signal>
+                <Signal>core_0/memory/dram/doutb[30]</Signal>
+                <Signal>core_0/memory/dram/doutb[29]</Signal>
+                <Signal>core_0/memory/dram/doutb[28]</Signal>
+                <Signal>core_0/memory/dram/doutb[27]</Signal>
+                <Signal>core_0/memory/dram/doutb[26]</Signal>
+                <Signal>core_0/memory/dram/doutb[25]</Signal>
+                <Signal>core_0/memory/dram/doutb[24]</Signal>
+                <Signal>core_0/memory/dram/doutb[23]</Signal>
+                <Signal>core_0/memory/dram/doutb[22]</Signal>
+                <Signal>core_0/memory/dram/doutb[21]</Signal>
+                <Signal>core_0/memory/dram/doutb[20]</Signal>
+                <Signal>core_0/memory/dram/doutb[19]</Signal>
+                <Signal>core_0/memory/dram/doutb[18]</Signal>
+                <Signal>core_0/memory/dram/doutb[17]</Signal>
+                <Signal>core_0/memory/dram/doutb[16]</Signal>
+                <Signal>core_0/memory/dram/doutb[15]</Signal>
+                <Signal>core_0/memory/dram/doutb[14]</Signal>
+                <Signal>core_0/memory/dram/doutb[13]</Signal>
+                <Signal>core_0/memory/dram/doutb[12]</Signal>
+                <Signal>core_0/memory/dram/doutb[11]</Signal>
+                <Signal>core_0/memory/dram/doutb[10]</Signal>
+                <Signal>core_0/memory/dram/doutb[9]</Signal>
+                <Signal>core_0/memory/dram/doutb[8]</Signal>
+                <Signal>core_0/memory/dram/doutb[7]</Signal>
+                <Signal>core_0/memory/dram/doutb[6]</Signal>
+                <Signal>core_0/memory/dram/doutb[5]</Signal>
+                <Signal>core_0/memory/dram/doutb[4]</Signal>
+                <Signal>core_0/memory/dram/doutb[3]</Signal>
+                <Signal>core_0/memory/dram/doutb[2]</Signal>
+                <Signal>core_0/memory/dram/doutb[1]</Signal>
+                <Signal>core_0/memory/dram/doutb[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="core_0/memory/dram/adb[12:0]">
+                <Signal>core_0/memory/dram/adb[12]</Signal>
+                <Signal>core_0/memory/dram/adb[11]</Signal>
+                <Signal>core_0/memory/dram/adb[10]</Signal>
+                <Signal>core_0/memory/dram/adb[9]</Signal>
+                <Signal>core_0/memory/dram/adb[8]</Signal>
+                <Signal>core_0/memory/dram/adb[7]</Signal>
+                <Signal>core_0/memory/dram/adb[6]</Signal>
+                <Signal>core_0/memory/dram/adb[5]</Signal>
+                <Signal>core_0/memory/dram/adb[4]</Signal>
+                <Signal>core_0/memory/dram/adb[3]</Signal>
+                <Signal>core_0/memory/dram/adb[2]</Signal>
+                <Signal>core_0/memory/dram/adb[1]</Signal>
+                <Signal>core_0/memory/dram/adb[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="core_0/memory/dram/dinb[31:0]">
+                <Signal>core_0/memory/dram/dinb[31]</Signal>
+                <Signal>core_0/memory/dram/dinb[30]</Signal>
+                <Signal>core_0/memory/dram/dinb[29]</Signal>
+                <Signal>core_0/memory/dram/dinb[28]</Signal>
+                <Signal>core_0/memory/dram/dinb[27]</Signal>
+                <Signal>core_0/memory/dram/dinb[26]</Signal>
+                <Signal>core_0/memory/dram/dinb[25]</Signal>
+                <Signal>core_0/memory/dram/dinb[24]</Signal>
+                <Signal>core_0/memory/dram/dinb[23]</Signal>
+                <Signal>core_0/memory/dram/dinb[22]</Signal>
+                <Signal>core_0/memory/dram/dinb[21]</Signal>
+                <Signal>core_0/memory/dram/dinb[20]</Signal>
+                <Signal>core_0/memory/dram/dinb[19]</Signal>
+                <Signal>core_0/memory/dram/dinb[18]</Signal>
+                <Signal>core_0/memory/dram/dinb[17]</Signal>
+                <Signal>core_0/memory/dram/dinb[16]</Signal>
+                <Signal>core_0/memory/dram/dinb[15]</Signal>
+                <Signal>core_0/memory/dram/dinb[14]</Signal>
+                <Signal>core_0/memory/dram/dinb[13]</Signal>
+                <Signal>core_0/memory/dram/dinb[12]</Signal>
+                <Signal>core_0/memory/dram/dinb[11]</Signal>
+                <Signal>core_0/memory/dram/dinb[10]</Signal>
+                <Signal>core_0/memory/dram/dinb[9]</Signal>
+                <Signal>core_0/memory/dram/dinb[8]</Signal>
+                <Signal>core_0/memory/dram/dinb[7]</Signal>
+                <Signal>core_0/memory/dram/dinb[6]</Signal>
+                <Signal>core_0/memory/dram/dinb[5]</Signal>
+                <Signal>core_0/memory/dram/dinb[4]</Signal>
+                <Signal>core_0/memory/dram/dinb[3]</Signal>
+                <Signal>core_0/memory/dram/dinb[2]</Signal>
+                <Signal>core_0/memory/dram/dinb[1]</Signal>
+                <Signal>core_0/memory/dram/dinb[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">core_0/memory/dram/wreb</Signal>
+            <Bus capture_enable="true" name="core_0/memory/opcode_in[5:0]">
+                <Signal>core_0/memory/opcode_in[5]</Signal>
+                <Signal>core_0/memory/opcode_in[4]</Signal>
+                <Signal>core_0/memory/opcode_in[3]</Signal>
+                <Signal>core_0/memory/opcode_in[2]</Signal>
+                <Signal>core_0/memory/opcode_in[1]</Signal>
+                <Signal>core_0/memory/opcode_in[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">core_0/memory/en</Signal>
+            <Signal capture_enable="true">core_0/memory/cal_en</Signal>
+            <Signal capture_enable="true">core_0/memory/int_en</Signal>
+            <Signal capture_enable="true">core_0/memory/ret_en</Signal>
+            <Signal capture_enable="true">core_0/memory/irt_en</Signal>
+            <Signal capture_enable="true">core_0/memory/hint_en</Signal>
+            <Signal capture_enable="true">core_0/memory/stack_inc</Signal>
+            <Signal capture_enable="true">core_0/memory/stack_dec</Signal>
+            <Signal capture_enable="true">core_0/memory/wre_RAM</Signal>
+        </SignalList>
+        <Triggers>
+            <Trigger index="0">
+                <SignalList>
+                    <Signal>rst_sys</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="1">
+                <SignalList>
+                    <Signal>core_0/uart_0/rxrdy_n</Signal>
+                </SignalList>
+            </Trigger>
+            <Trigger index="2"/>
+            <Trigger index="3"/>
+            <Trigger index="4"/>
+            <Trigger index="5"/>
+            <Trigger index="6"/>
+            <Trigger index="7"/>
+            <Trigger index="8"/>
+            <Trigger index="9"/>
+            <Trigger index="10"/>
+            <Trigger index="11"/>
+            <Trigger index="12"/>
+            <Trigger index="13"/>
+            <Trigger index="14"/>
+            <Trigger index="15"/>
+        </Triggers>
+        <MatchUnits>
+            <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="R" value1="0" trigger="0"/>
+            <MatchUnit index="1" enabled="1" match_type="1" counter_enable="0" counter_width="1" counter="1" countinuous="0" func="0" value0="F" value1="0" trigger="1"/>
+            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="10000000000001" value1="00000000000000" trigger="2"/>
+            <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="6" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="7" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="8" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="9" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="10" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="11" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="12" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="13" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="14" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="15" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+        </MatchUnits>
+        <Expressions type="Static">
+            <Expression>M0|M1</Expression>
+        </Expressions>
+    </AoCore>
+    <GAO_ID>1011111011011010</GAO_ID>
+</GAO_CONFIG>

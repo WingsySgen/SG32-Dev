@@ -1,0 +1,36 @@
+global uart_wt
+    label uart_wrt_1
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov 0b01100000 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_wrt_1
+    label int_uart_wt
+        mov uart _ ioad
+        nop _ _ _ 
+        mov reg23 _ ioc
+        ret _ _ _
+
+global uart_rd
+    label uart_rd_1
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov 1 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_rd_1
+    label int_uart_rd
+        mov uart _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov ioc _ reg23
+        ret _ _ _
+
+global uart_init
+    mov uart.lcr _ ioad
+    mov 7 _ ioc
+    ret _ _ _

@@ -1,0 +1,144 @@
+#UART带中断接收测试
+#烧录
+#主函数内使led不断变化
+#通过中断回显串口输入的数据
+
+const uart_buffer 0x100
+
+nop _ _ _
+jmp _ _ init
+jmp _ _ interrupt
+
+label int_uart
+    mov reg25 _ reg15
+    mov ioad _ reg22
+
+    mov uart.lsr _ ioad
+    nop _ _ _ 
+    nop _ _ _ 
+    mov 1 _ reg24
+    and ioc reg24 reg25
+    je reg25 reg24 int_uart_prepare_rd
+    label int_uart_prepare_wt
+        memr _ 64 reg23
+        je reg23 reg0 int_uart_prepare_wt_end
+            memr _ reg6 reg23
+            add reg6 1 reg6 
+            je reg23 reg0 int_uart_prepare_wt_isend
+            label int_uart_prepare_wt_notend
+                call _ _ int_uart_wt
+                jmp _ _ int_uart_prepare_wt_end
+            label int_uart_prepare_wt_isend
+                memw reg0 64 _ 
+                mov 128 + 15 _ ioad 
+                xor ioc 10 reg24 
+                mov reg24 _ ioc 
+        label int_uart_prepare_wt_end
+        jmp _ _ int_uart_prepare_end
+    label int_uart_prepare_rd
+        call _ _ int_uart_rd
+        memw reg23 reg5 _ 
+        add reg5 1 reg5 
+        call _ _ is_CRLF
+        je reg23 reg0 int_uart_prepare_rd_notend
+        label int_uart_prepare_rd_isend
+            memw 0 reg5 _ 
+            mov uart_buffer _ reg5
+            call _ _ regtask_print
+        label int_uart_prepare_rd_notend
+        jmp _ _ int_uart_prepare_end 
+    label int_uart_prepare_end 
+    mov reg22 _ ioad
+    mov reg15 _ reg25
+    iret _ _ _
+
+label interrupt
+    nop _ _ _
+    memr _ intc wimm
+    jmp _ _ wimm
+
+label init
+    mov uart_buffer _ reg5 
+    mov uart_buffer _ reg6 
+    mov 32 _ wimm 
+    memw int_uart wimm _ 
+    call _ _ uart_init
+    mov 256 _ ioad
+    mov 0b0101 _ reg1
+    mov reg1 _ ioc
+    jmp _ _ main
+
+label main
+    not reg1 _ reg1
+    mov reg1 _ ioc
+    call _ _ sleep
+    jmp _ _ main
+
+label sleep
+    add timer 1000 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _
+
+label is_CRLF 
+    mov 13 _ reg24 
+    jne reg23 reg24 is_CRLF_nxt 
+        mov 1 _ reg23 
+        ret _ _ _ 
+    label is_CRLF_nxt 
+    mov 10 _ reg24 
+    jne reg23 reg24 is_CRLF_end 
+        mov 1 _ reg23 
+        ret _ _ _ 
+    label is_CRLF_end 
+        mov 0 _ reg23 
+        ret _ _ _ 
+
+label regtask_print
+    mov 1 _ reg24
+    memw reg24 64 _
+    mov uart_buffer _ reg6 
+    memr _ reg6 reg23
+    call _ _ int_uart_wt
+    add reg6 1 reg6
+    mov 128 + 15 _ ioad 
+    or ioc 0b10 reg24 
+    mov reg24 _ ioc 
+    ret _ _ _ 
+
+label uart_init
+    mov uart.lcr _ ioad
+    mov 7 _ ioc
+    ret _ _ _
+
+label uart_wt
+    label uart_wrt_1
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov 0b01100000 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_wrt_1
+    label int_uart_wt
+        mov uart _ ioad
+        nop _ _ _ 
+        mov reg23 _ ioc
+        ret _ _ _
+
+label uart_rd
+    label uart_rd_1
+        mov uart.lsr _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov 1 _ reg24
+        and ioc reg24 reg25
+        jne reg25 reg24 uart_rd_1
+    label int_uart_rd
+        mov uart _ ioad
+        nop _ _ _
+        nop _ _ _
+        nop _ _ _ 
+        mov ioc _ reg23
+        ret _ _ _

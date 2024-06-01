@@ -1,0 +1,34 @@
+#基本访存测试
+#仿真
+#对0x0a到0x01存入0x0a到0x01
+#然后对0x0a到0x01读取，存入reg2
+
+jmp _ _ init
+#jmp _ _ interrupt
+
+label init
+    jmp _ _ main
+
+label main
+    mov 10 _ reg1
+    label main_loop_1
+        memw reg1 reg1 _
+        sub reg1 1 reg1 
+        jne reg1 reg0 main_loop_1
+    mov 10 _ reg1
+    label main_loop_2
+        memr _ reg1 reg2
+        sub reg1 1 reg1
+        jne reg1 reg0 main_loop_2
+    call _ _ trap
+    jmp _ _ main
+
+label sleep
+    add timer 1000 reg25
+    label sleep_1
+        jne timer reg25 sleep_1
+    ret _ _ _
+
+label trap
+    jmp _ _ trap
+    ret _ _ _ 

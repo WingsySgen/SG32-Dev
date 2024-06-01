@@ -1,0 +1,22 @@
+#求reg25的阶乘，结果在reg24中
+#仿真
+
+jmp _ _ init
+#jmp _ _ interrupt
+
+label init
+    mov 1 _ reg24
+    mov 10 _ reg25
+    jmp _ _ main
+
+label main
+    call _ _ fact
+    jmp _ _ 0x00
+
+label fact
+    je reg25 reg0 fact_end
+    mull reg24 reg25 reg24
+    sub reg25 1 reg25
+    call _ _ fact
+    label fact_end
+        ret _ _ _ 
