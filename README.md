@@ -2,7 +2,7 @@
 
 ***
 
-SG32D：基于Sipeed FPGA的CPU/框架
+SG32D：基于Sipeed FPGA的CPU/框架。
 
 - [简介](#简介)
 - [使用方法](#使用方法)
